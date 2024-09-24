@@ -1,0 +1,3 @@
+com.xwiki.patch.internal.rest.DefaultPatchResource
+com.xwiki.patch.internal.DefaultInstanceIdValidator
+com.xwiki.patch.internal.DefaultPatchRepository

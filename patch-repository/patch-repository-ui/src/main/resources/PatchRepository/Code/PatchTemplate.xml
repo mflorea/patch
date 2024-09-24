@@ -1,0 +1,132 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc version="1.5" reference="PatchRepository.Code.PatchTemplate" locale="">
+  <web>PatchRepository.Code</web>
+  <name>PatchTemplate</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <creator>xwiki:XWiki.Admin</creator>
+  <parent>PatchRepository.Code.WebHome</parent>
+  <author>xwiki:XWiki.Admin</author>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <version>1.1</version>
+  <title/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>true</hidden>
+  <content/>
+  <object>
+    <name>PatchRepository.Code.PatchTemplate</name>
+    <number>0</number>
+    <className>PatchRepository.Code.PatchClass</className>
+    <guid>af7dbfa6-9ab1-4fbd-851a-afc1ee106b58</guid>
+    <class>
+      <name>PatchRepository.Code.PatchClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <instances>
+        <cache>0</cache>
+        <customDisplay/>
+        <defaultValue/>
+        <disabled>0</disabled>
+        <displayType>input</displayType>
+        <freeText>allowed</freeText>
+        <hint>The XWiki instances where this patch can be applied. When empty, any XWiki instance is targeted.</hint>
+        <largeStorage>0</largeStorage>
+        <multiSelect>1</multiSelect>
+        <name>instances</name>
+        <number>2</number>
+        <picker>1</picker>
+        <prettyName>Instances</prettyName>
+        <relationalStorage>1</relationalStorage>
+        <separator>, </separator>
+        <separators>|, </separators>
+        <size>1</size>
+        <sort/>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <values/>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </instances>
+      <published>
+        <customDisplay/>
+        <defaultValue>0</defaultValue>
+        <disabled>0</disabled>
+        <displayFormType>checkbox</displayFormType>
+        <displayType/>
+        <hint>Whether this patch is ready to be applied on matching XWiki instances</hint>
+        <name>published</name>
+        <number>3</number>
+        <prettyName>Published</prettyName>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+      </published>
+      <versions>
+        <cache>0</cache>
+        <customDisplay/>
+        <defaultValue/>
+        <disabled>0</disabled>
+        <displayType>input</displayType>
+        <freeText>allowed</freeText>
+        <hint>The list of XWiki versions that this patch can be applied to</hint>
+        <largeStorage>0</largeStorage>
+        <multiSelect>1</multiSelect>
+        <name>versions</name>
+        <number>1</number>
+        <picker>1</picker>
+        <prettyName>Versions</prettyName>
+        <relationalStorage>1</relationalStorage>
+        <separator>, </separator>
+        <separators>|, </separators>
+        <size>1</size>
+        <sort/>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <values/>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </versions>
+    </class>
+    <property>
+      <instances>
+        <value/>
+      </instances>
+    </property>
+    <property>
+      <published/>
+    </property>
+    <property>
+      <versions/>
+    </property>
+  </object>
+</xwikidoc>
