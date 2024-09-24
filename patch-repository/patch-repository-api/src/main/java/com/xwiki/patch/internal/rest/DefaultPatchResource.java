@@ -73,7 +73,7 @@ public class DefaultPatchResource extends XWikiResource implements PatchResource
     {
         if (this.instanceIdValidator.isValid(instanceId)) {
             Optional<com.xwiki.patch.Patch> patch = this.patchRepository.getPatch(patchId);
-            if (patch.isPresent() && patch.get().isPublished() && patch.get().getVersions().contains(version)) {
+            if (patch.isPresent() && patch.get().isFor(instanceId, version)) {
                 return Response.ok().type(MediaType.valueOf(patch.get().getContentType()))
                     .entity(patch.get().getContent()).build();
             }

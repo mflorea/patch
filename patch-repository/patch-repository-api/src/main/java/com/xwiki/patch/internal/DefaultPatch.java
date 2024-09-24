@@ -92,6 +92,12 @@ public class DefaultPatch implements Patch
     }
 
     @Override
+    public List<String> getInstances()
+    {
+        return getPropertyValue("instances", List.of());
+    }
+
+    @Override
     public boolean isPublished()
     {
         return Integer.valueOf(1).equals(getPropertyValue("published", Integer.valueOf(0)));

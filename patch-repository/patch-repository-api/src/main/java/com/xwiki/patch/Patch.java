@@ -40,6 +40,11 @@ public interface Patch
     List<String> getVersions();
 
     /**
+     * @return the XWiki instances where this patch can be applied; if empty, the patch can be applied to any instance
+     */
+    List<String> getInstances();
+
+    /**
      * @return {@code true} if the patch is ready to be applied, {@code false} otherwise
      */
     boolean isPublished();
@@ -53,4 +58,16 @@ public interface Patch
      * @return the content of the patch
      */
     InputStream getContent();
+
+    /**
+     * @param instanceId an XWiki instance id
+     * @param version an XWiki version
+     * @return {@code true} if the patch can be applied to the specified XWiki instance (having the given version),
+     *         {@code false} otherwise
+     */
+    default boolean isFor(String instanceId, String version)
+    {
+        return isPublished() && getVersions().contains(version)
+            && (getInstances().isEmpty() || getInstances().contains(instanceId));
+    }
 }

@@ -67,13 +67,22 @@ public class DefaultPatchRepository implements PatchRepository
     @Override
     public List<Patch> getPatches(String instanceId, String version, long since)
     {
-        String statement = "from doc.object(PatchRepository.Code.PatchClass) as patch"
-            + " where doc.creationDate > :since and :version member of patch.versions";
+        StringBuilder statement = new StringBuilder();
+        statement.append(", BaseObject AS patchObj,");
+        statement.append("  DBStringListProperty AS versionsProp JOIN versionsProp.list version,");
+        statement.append("  DBStringListProperty AS instancesProp LEFT JOIN instancesProp.list instance ");
+        statement.append("WHERE doc.creationDate > :since");
+        statement.append("  AND patchObj.className = 'PatchRepository.Code.PatchClass'");
+        statement.append("    AND patchObj.name = doc.fullName");
+        statement.append("  AND patchObj.id = versionsProp.id.id AND versionsProp.id.name = 'versions'");
+        statement.append("  AND patchObj.id = instancesProp.id.id AND instancesProp.id.name = 'instances'");
+        statement.append("  AND version = :version AND (instance is null OR instance = :instance)");
 
         try {
-            Query query = this.queryManager.createQuery(statement, Query.XWQL);
-            query.bindValue("version", version);
+            Query query = this.queryManager.createQuery(statement.toString(), Query.HQL);
             query.bindValue("since", new Date(since));
+            query.bindValue("version", version);
+            query.bindValue("instance", instanceId);
             query.addFilter(this.documentQueryFilter);
             return query.execute().stream().map(DocumentReference.class::cast).map(this::getPatch)
                 .filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
